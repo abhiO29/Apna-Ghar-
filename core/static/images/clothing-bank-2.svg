@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of neatly folded donated clothes arranged by category on numbered shelves">
+  <defs>
+    <linearGradient id="cbg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5EFE0"/>
+      <stop offset="1" stop-color="#FBF7EE"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#cbg2)"/>
+  <rect y="720" width="1200" height="180" fill="#EFE7D3"/>
+  <rect y="720" width="1200" height="12" fill="#E3DCC8"/>
+
+  <!-- shelving unit -->
+  <rect x="180" y="120" width="840" height="640" rx="14" fill="#F3ECDA" stroke="#D9B487" stroke-width="6"/>
+  <!-- shelves -->
+  <g fill="#D9B487">
+    <rect x="180" y="270" width="840" height="16"/>
+    <rect x="180" y="430" width="840" height="16"/>
+    <rect x="180" y="590" width="840" height="16"/>
+  </g>
+  <!-- centre divider -->
+  <rect x="592" y="120" width="16" height="640" fill="#D9B487"/>
+
+  <!-- shelf labels -->
+  <g font-family="'Fraunces','Georgia',serif" font-size="22" fill="#FFFFFF">
+    <rect x="196" y="132" width="70" height="30" rx="8" fill="#7C9A6E"/><text x="231" y="154" text-anchor="middle">A-01</text>
+    <rect x="624" y="132" width="70" height="30" rx="8" fill="#7C9A6E"/><text x="659" y="154" text-anchor="middle">A-02</text>
+    <rect x="196" y="298" width="70" height="30" rx="8" fill="#E8A33D"/><text x="231" y="320" text-anchor="middle">B-01</text>
+    <rect x="624" y="298" width="70" height="30" rx="8" fill="#E8A33D"/><text x="659" y="320" text-anchor="middle">B-02</text>
+    <rect x="196" y="458" width="70" height="30" rx="8" fill="#4F6B44"/><text x="231" y="480" text-anchor="middle">C-01</text>
+    <rect x="624" y="458" width="70" height="30" rx="8" fill="#4F6B44"/><text x="659" y="480" text-anchor="middle">C-02</text>
+  </g>
+
+  <!-- folded clothes stacks per shelf cell -->
+  <!-- helper: colored stacked bars -->
+  <g>
+    <!-- top-left -->
+    <g transform="translate(300,190)">
+      <rect x="0" y="0" width="230" height="20" rx="6" fill="#7C9A6E"/>
+      <rect x="6" y="22" width="218" height="18" rx="6" fill="#8AA87B"/>
+      <rect x="0" y="42" width="230" height="18" rx="6" fill="#4F6B44"/>
+    </g>
+    <!-- top-right -->
+    <g transform="translate(720,190)">
+      <rect x="0" y="0" width="230" height="20" rx="6" fill="#E8A33D"/>
+      <rect x="6" y="22" width="218" height="18" rx="6" fill="#F6C56B"/>
+      <rect x="0" y="42" width="230" height="18" rx="6" fill="#C17F1F"/>
+    </g>
+    <!-- mid-left -->
+    <g transform="translate(300,350)">
+      <rect x="0" y="0" width="230" height="20" rx="6" fill="#C17F1F"/>
+      <rect x="6" y="22" width="218" height="18" rx="6" fill="#E8A33D"/>
+      <rect x="0" y="42" width="230" height="18" rx="6" fill="#D9B487"/>
+    </g>
+    <!-- mid-right -->
+    <g transform="translate(720,350)">
+      <rect x="0" y="0" width="230" height="20" rx="6" fill="#6E8C61"/>
+      <rect x="6" y="22" width="218" height="18" rx="6" fill="#7C9A6E"/>
+      <rect x="0" y="42" width="230" height="18" rx="6" fill="#8AA87B"/>
+    </g>
+    <!-- bottom-left -->
+    <g transform="translate(300,510)">
+      <rect x="0" y="0" width="230" height="20" rx="6" fill="#8AA87B"/>
+      <rect x="6" y="22" width="218" height="18" rx="6" fill="#4F6B44"/>
+      <rect x="0" y="42" width="230" height="18" rx="6" fill="#7C9A6E"/>
+    </g>
+    <!-- bottom-right -->
+    <g transform="translate(720,510)">
+      <rect x="0" y="0" width="230" height="20" rx="6" fill="#F6C56B"/>
+      <rect x="6" y="22" width="218" height="18" rx="6" fill="#E8A33D"/>
+      <rect x="0" y="42" width="230" height="18" rx="6" fill="#C17F1F"/>
+    </g>
+  </g>
+
+  <!-- basket in front -->
+  <g transform="translate(470,620)">
+    <path d="M0 30 l260 0 l-24 120 l-212 0 Z" fill="#D9B487"/>
+    <ellipse cx="130" cy="30" rx="130" ry="26" fill="#E7C9A0"/>
+    <ellipse cx="130" cy="30" rx="100" ry="18" fill="#C9A876"/>
+    <rect x="70" y="6" width="120" height="18" rx="8" fill="#7C9A6E"/>
+    <rect x="86" y="-8" width="90" height="18" rx="8" fill="#E8A33D"/>
+  </g>
+</svg>

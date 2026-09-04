@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+{% load static %}
+{% load site_content %}
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | अपना घर वृद्ध आश्रम</title>
+  <meta name="description" content="Photos of our home and Community Clothing Bank.">
+  <link rel="icon" href="{% static 'images/logo/favicon.ico' %}" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/logo/favicon-16.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo/favicon-32.png' %}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{% static 'images/logo/favicon-192.png' %}">
+  <link rel="icon" type="image/png" sizes="512x512" href="{% static 'images/logo/favicon-512.png' %}">
+  <link rel="apple-touch-icon" href="{% static 'images/logo/apple-touch-icon.png' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Fraunces:wght@400;600;700&family=Noto+Serif+Devanagari:wght@500;700&family=Noto+Sans+Devanagari:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+  <a class="skip-link" href="#main">मुख्य सामग्री पर जाएँ / Skip to content</a>
+
+  <div class="utility-bar">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <div>
+        <a href="tel:+919811998054"><i class="bi bi-telephone-fill"></i> +91 98119 98054</a>
+        <span class="sep d-none d-sm-inline">|</span>
+        <a class="d-none d-sm-inline" href="contact.html"><i class="bi bi-geo-alt-fill"></i> Ranaji Enclave, Najafgarh Road, New Delhi</a>
+      </div>
+      <div>
+        <a href="{% url 'admin_login' %}"><i class="bi bi-shield-lock-fill"></i> Admin / Volunteer Login</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-ag sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="{% site_image 'site_logo' 'images/logo/logo_nav.png' %}" alt="अपना घर वृद्ध आश्रम logo" style="height:46px;width:auto;">
+        <span>
+          <span class="brand-text-hi d-block">अपना घर</span>
+          <span class="brand-text-sub">वृद्ध आश्रम</span>
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" data-page="index.html" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="about.html" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="gallery.html" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="clothing-bank.html" href="clothing-bank.html">Clothing Bank</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="contact.html" href="contact.html">Contact Us</a></li>
+          <li class="nav-item ms-lg-2"><a class="nav-link btn-donate-nav" data-page="donate.html" href="donate.html"><i class="bi bi-heart-fill me-1"></i> Donate</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="section pb-0" style="padding-top:60px;">
+      <div class="container text-center">
+        <span class="section-eyebrow">In Pictures</span>
+        <h1 class="section-title">Gallery</h1>
+        <div class="divider-arch mx-auto"></div>
+        <p class="section-lead mx-auto">A look at our home, our community outreach, and the Clothing Bank that serves needy families. Click any photo to view it full screen.</p>
+      </div>
+    </section>
+
+    <section class="section pt-4">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="gallery-item">
+              <img src="{% site_image 'gallery_1' 'images/building.svg' %}" alt="अपना घर वृद्ध आश्रम building front view" data-caption="अपना घर वृद्ध आश्रम — MS Block, Ranaji Enclave, Najafgarh Road, New Delhi">
+              <div class="zoom-hint"><i class="bi bi-arrows-fullscreen"></i></div>
+              <div class="gallery-caption">Our Home — Building Front View</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="gallery-item">
+              <img src="{% site_image 'gallery_2' 'images/meal-service.svg' %}" alt="Community outreach poster showing meal service to elderly" data-caption="Manav Sewa Charitable Samiti — meal sponsorship &amp; community outreach">
+              <div class="zoom-hint"><i class="bi bi-arrows-fullscreen"></i></div>
+              <div class="gallery-caption">Serving Meals With Love</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="gallery-item">
+              <img src="{% site_image 'gallery_3' 'images/clothing-bank-1.svg' %}" alt="Community Clothing Bank showroom with racks of donated clothes" data-caption="Community Clothing Bank — donated clothes ready for needy families">
+              <div class="zoom-hint"><i class="bi bi-arrows-fullscreen"></i></div>
+              <div class="gallery-caption">Clothing Bank — Showroom</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="gallery-item">
+              <img src="{% site_image 'gallery_4' 'images/clothing-bank-2.svg' %}" alt="Community Clothing Bank showroom, another view of the racks" data-caption="Community Clothing Bank — organised by category on numbered shelves">
+              <div class="zoom-hint"><i class="bi bi-arrows-fullscreen"></i></div>
+              <div class="gallery-caption">Clothing Bank — Organised Shelves</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous image"><i class="bi bi-chevron-left"></i></button>
+    <img src="" alt="">
+    <button class="lightbox-nav lightbox-next" aria-label="Next image"><i class="bi bi-chevron-right"></i></button>
+    <div class="lightbox-caption"></div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h5><img src="{% site_image 'site_logo' 'images/logo/logo_footer.png' %}" alt="अपना घर वृद्ध आश्रम logo" style="height:38px;width:auto;vertical-align:middle;"> अपना घर वृद्ध आश्रम</h5>
+          <p>A home with love, care and respect for every senior citizen. Run by Manav Sewa Charitable Samiti (Regd.), serving Delhi's elderly since inception.</p>
+          <div class="d-flex gap-3 mt-3 fs-5">
+            <a href="tel:+919811998054" aria-label="Call us"><i class="bi bi-telephone-fill"></i></a>
+            <a href="https://wa.me/919811998054" target="_blank" rel="noopener" aria-label="WhatsApp us"><i class="bi bi-whatsapp"></i></a>
+            <a href="contact.html" aria-label="Email us"><i class="bi bi-envelope-fill"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h5>Explore</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="about.html">About Us</a></li>
+            <li class="mb-2"><a href="gallery.html">Gallery</a></li>
+            <li class="mb-2"><a href="clothing-bank.html">Clothing Bank</a></li>
+            <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h5>Support Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="donate.html">Donate Now</a></li>
+            <li class="mb-2"><a href="clothing-bank.html">Donate Clothes</a></li>
+            <li class="mb-2"><a href="contact.html">Volunteer</a></li>
+            <li class="mb-2"><a href="{% url 'admin_login' %}">Admin Login</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5>Visit Us</h5>
+          <p><i class="bi bi-geo-alt-fill me-2"></i>MS Block, Ranaji Enclave, Near Rana Ji Mandir, Metro Pillar No. 53, Najafgarh Road, New Delhi – 110043</p>
+          <p><i class="bi bi-telephone-fill me-2"></i><a href="tel:+919811998054">+91 98119 98054</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> अपना घर वृद्ध आश्रम — Manav Sewa Charitable Samiti (Regd.). Made with care for our elders.
+      </div>
+    </div>
+  </footer>
+
+  <div class="fab-stack">
+    <a class="fab fab-whatsapp" href="https://wa.me/919811998054" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+    <a class="fab fab-call" href="tel:+919811998054" aria-label="Call us"><i class="bi bi-telephone-fill"></i></a>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

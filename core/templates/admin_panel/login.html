@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+{% load static %}
+{% load site_content %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login | अपना घर वृद्ध आश्रम</title>
+<link rel="icon" href="{% static 'images/logo/favicon.ico' %}" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/logo/favicon-16.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo/favicon-32.png' %}">
+<link rel="icon" type="image/png" sizes="192x192" href="{% static 'images/logo/favicon-192.png' %}">
+<link rel="icon" type="image/png" sizes="512x512" href="{% static 'images/logo/favicon-512.png' %}">
+<link rel="apple-touch-icon" href="{% static 'images/logo/apple-touch-icon.png' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Fraunces:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="admin-body">
+  <div class="container">
+    <div class="login-box text-center">
+      <img src="{% site_image 'site_logo' 'images/logo/logo_nav.png' %}" alt="अपना घर वृद्ध आश्रम logo" class="mx-auto mb-3 d-block" style="height:72px;width:auto;">
+      <h1 class="h3 mb-1" style="font-family:'Yatra One',serif;">अपना घर वृद्ध आश्रम</h1>
+      <p class="text-muted mb-4">Volunteer &amp; Admin Panel</p>
+
+      <form id="loginForm" class="text-start" method="post" action="{% url 'admin_login' %}">
+        {% csrf_token %}
+        <label class="form-label-ag" for="username">Username</label>
+        <input type="text" name="username" class="form-control form-control-ag mb-3" id="username" placeholder="admin" required autofocus>
+
+        <label class="form-label-ag" for="password">Password</label>
+        <input type="password" name="password" class="form-control form-control-ag mb-3" id="password" placeholder="••••••••" required>
+
+        {% if form.errors %}
+        <div class="alert alert-danger" id="loginError">Incorrect username or password. Please try again.</div>
+        {% endif %}
+
+        <input type="hidden" name="next" value="{{ next }}">
+
+        <button type="submit" class="btn-ag-primary w-100 mt-2">
+          <i class="bi bi-box-arrow-in-right me-2"></i>Login
+        </button>
+      </form>
+
+      <a href="{% url 'home' %}" class="d-inline-block mt-3 small"><i class="bi bi-arrow-left me-1"></i>Back to website</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
