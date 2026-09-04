@@ -197,7 +197,7 @@
 
   function renderInventory() {
     document.getElementById('inventoryBody').innerHTML = db.inventory.map(function (i) {
-      return '<tr><td><strong>' + escapeHtml(i.shelf) + '</strong></td><td>' + i.category + '</td><td>' + i.size +
+      return '<tr><td><strong>' + escapeHtml(i.shelf) + '</strong></td><td>' + i.category + '</td><td>' + escapeHtml(i.size) +
         '</td><td>' + i.qty + '</td><td>' + statusBadge(i.status) + '</td>' +
         '<td><button class="btn btn-sm btn-outline-secondary edit-shelf-btn" data-id="' + i.id + '"><i class="bi bi-pencil"></i></button></td></tr>';
     }).join('') || '<tr><td colspan="6" class="text-muted text-center py-3">No shelves added yet</td></tr>';

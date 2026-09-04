@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .ratelimit import rate_limited
 
 urlpatterns = [
     path("", views.HomeView.as_view(), name="home"),
@@ -11,7 +12,11 @@ urlpatterns = [
     path("donate.html", views.DonateView.as_view(), name="donate"),
     path("clothing-bank.html", views.ClothingBankView.as_view(), name="clothing_bank"),
     path("contact.html", views.ContactView.as_view(), name="contact"),
-    path("admin/login.html", views.AdminLoginView.as_view(), name="admin_login"),
+    path(
+        "admin/login.html",
+        rate_limited("admin_login", limit=10, window_seconds=300)(views.AdminLoginView.as_view()),
+        name="admin_login",
+    ),
     path("admin/dashboard.html", views.AdminDashboardView.as_view(), name="admin_dashboard"),
     path("admin/logout", views.AdminLogoutView.as_view(), name="admin_logout"),
 ]

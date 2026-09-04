@@ -18,6 +18,8 @@ from django.utils import timezone
 from django.views.decorators.http import require_GET, require_http_methods
 from PIL import Image, UnidentifiedImageError
 
+from core.ratelimit import rate_limited
+
 from .forms import ContactEnquiryForm, DonorForm, InventoryShelfForm, IssueRecordForm
 from .models import ContactEnquiry, Donor, InventoryShelf, IssueRecord, SiteImage
 
@@ -195,6 +197,7 @@ def api_issues_create(request):
     return JsonResponse(_serialize_issue(issue), status=201)
 
 
+@rate_limited("contact_submit", limit=5, window_seconds=600)
 @require_http_methods(["POST"])
 def contact_submit(request):
     """Public endpoint (no login required) backing the /contact.html form."""

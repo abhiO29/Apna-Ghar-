@@ -1,10 +1,11 @@
 """
 Django settings for the अपना घर वृद्ध आश्रम project.
 
-Milestone 1 scope: serve the existing static site through Django templates,
-connect to MySQL, and lay groundwork for auth/models in later milestones.
-Nothing here is production-hardened yet — see SECURITY.md once we reach
-Milestone 5 for the hardening pass (HTTPS, secure cookies, HSTS, etc).
+Security hardening pass: CSRF/XSS audited, per-IP rate limiting added on
+/admin/login.html and /contact/submit/, production security settings added
+below (SECURE_SSL_REDIRECT, HSTS, secure cookies, etc) — all OFF by default
+via env vars so local dev over plain HTTP keeps working unchanged. Flip them
+on in .env only once this is actually deployed behind HTTPS.
 """
 
 import os
@@ -24,6 +25,39 @@ ALLOWED_HOSTS = [
     h.strip() for h in os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
     if h.strip()
 ]
+
+# ---------------------------------------------------------------------------
+# Production security settings — every one of these defaults to "off"/dev-
+# safe so local development over plain HTTP on 127.0.0.1 is unaffected.
+# Set the corresponding env var in .env only once this is deployed behind
+# real HTTPS — turning SECURE_SSL_REDIRECT or the *_COOKIE_SECURE flags on
+# over plain HTTP will lock you out (redirect loops / cookies never sent).
+# ---------------------------------------------------------------------------
+SECURE_SSL_REDIRECT = os.environ.get("DJANGO_SECURE_SSL_REDIRECT", "False") == "True"
+SESSION_COOKIE_SECURE = os.environ.get("DJANGO_SESSION_COOKIE_SECURE", "False") == "True"
+CSRF_COOKIE_SECURE = os.environ.get("DJANGO_CSRF_COOKIE_SECURE", "False") == "True"
+SECURE_HSTS_SECONDS = int(os.environ.get("DJANGO_SECURE_HSTS_SECONDS", "0"))
+# Safe to leave on in dev too — it's just a response header, never breaks
+# anything locally, and it's exactly what stops an uploaded file (SiteImage)
+# from ever being MIME-sniffed into something executable by the browser.
+SECURE_CONTENT_TYPE_NOSNIFF = os.environ.get("DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", "True") == "True"
+X_FRAME_OPTIONS = os.environ.get("DJANGO_X_FRAME_OPTIONS", "DENY")
+CSRF_TRUSTED_ORIGINS = [
+    o.strip() for o in os.environ.get("DJANGO_CSRF_TRUSTED_ORIGINS", "").split(",") if o.strip()
+]
+
+# ---------------------------------------------------------------------------
+# Cache — backs the per-IP rate limiting in core/ratelimit.py (admin login,
+# contact form). LocMemCache is per-process: fine for a single `runserver`
+# / single-worker deployment, but each worker gets its own counters under
+# multiple Gunicorn workers, so the effective limit multiplies by worker
+# count. Swap to Redis/memcached there if that matters at your scale.
+# ---------------------------------------------------------------------------
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+    }
+}
 
 # ---------------------------------------------------------------------------
 # Applications
@@ -134,9 +168,28 @@ STORAGES = {
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"  # SiteImage uploads (Site Content, superuser-only) live here
-
-# Uploaded files (SiteImage) must never be saved executable, regardless of
-# the server's umask — 0o644 = rw-r--r--, no execute bit for anyone.
+# MEDIA_ROOT is a plain sibling directory of STATIC_ROOT, not nested inside
+# any app/code directory — nothing here is ever imported or executed by
+# Django itself. Two more guarantees on top of that, enforced in
+# clothingbank/views.py's upload view (api_site_image_upload):
+#   1. Every uploaded file is re-saved under a name WE generate
+#      (uuid4().hex + an extension), and that extension is chosen from a
+#      fixed map keyed on Pillow's *verified* decoded format — never from
+#      the client's filename or Content-Type header. So nothing with a
+#      .php/.html/.svg-style extension can ever land in MEDIA_ROOT.
+#   2. SECURE_CONTENT_TYPE_NOSNIFF (below) sends X-Content-Type-Options:
+#      nosniff, so even if a browser wanted to re-interpret a served
+#      image/jpeg as something executable, it's told not to.
+# In production, MEDIA_ROOT is typically served directly by Nginx rather
+# than Django — when you set that up, give /media/ its own `location` block
+# with NO fastcgi/php/CGI handler attached (Nginx only ever executes a file
+# if a location block explicitly says to; it doesn't auto-execute based on
+# extension the way old Apache+mod_php setups could). That Nginx config
+# lives outside this repo, so it's not something this settings file can
+# enforce — treat this comment as the checklist item for whoever writes it.
+#
+# Uploaded files must never be saved executable on disk either, regardless
+# of the server's umask — 0o644 = rw-r--r--, no execute bit for anyone.
 FILE_UPLOAD_PERMISSIONS = 0o644
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
