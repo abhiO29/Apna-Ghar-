@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of a warm home-cooked thali being served with care">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5EFE0"/>
+      <stop offset="1" stop-color="#FBF7EE"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#FBEFD6"/>
+      <stop offset="1" stop-color="#F5EFE0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EFE7D3"/>
+    </linearGradient>
+    <filter id="soft2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg2)"/>
+  <rect width="1200" height="900" fill="url(#warm)"/>
+
+  <!-- steam -->
+  <g stroke="#C9B98C" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.55">
+    <path d="M520 250 q-26 -40 0 -80 q26 -40 0 -80"/>
+    <path d="M620 235 q-26 -40 0 -80 q26 -40 0 -80"/>
+    <path d="M700 255 q-26 -40 0 -80 q26 -40 0 -80"/>
+  </g>
+
+  <!-- table shadow -->
+  <ellipse cx="600" cy="620" rx="330" ry="52" fill="#34492C" opacity="0.12" filter="url(#soft2)"/>
+
+  <!-- thali (steel plate) -->
+  <circle cx="600" cy="470" r="248" fill="#DCD5C2"/>
+  <circle cx="600" cy="470" r="230" fill="url(#plate)"/>
+  <circle cx="600" cy="470" r="230" fill="none" stroke="#D8CFB6" stroke-width="3"/>
+  <circle cx="600" cy="470" r="150" fill="none" stroke="#E3DCC8" stroke-width="3"/>
+
+  <!-- rice mound (center) -->
+  <ellipse cx="600" cy="472" rx="92" ry="70" fill="#FFFFFF"/>
+  <ellipse cx="600" cy="452" rx="78" ry="46" fill="#FBF7EE"/>
+
+  <!-- rotis (top-left katori area) -->
+  <g>
+    <circle cx="452" cy="392" r="58" fill="#F0DCA9"/>
+    <circle cx="452" cy="392" r="58" fill="none" stroke="#D9B87A" stroke-width="3"/>
+    <circle cx="470" cy="378" r="6" fill="#C79A55" opacity="0.6"/>
+    <circle cx="440" cy="404" r="5" fill="#C79A55" opacity="0.6"/>
+  </g>
+
+  <!-- dal katori (top-right) -->
+  <g>
+    <circle cx="748" cy="392" r="62" fill="#E8A33D"/>
+    <circle cx="748" cy="392" r="62" fill="none" stroke="#C17F1F" stroke-width="4"/>
+    <ellipse cx="740" cy="378" rx="26" ry="12" fill="#F6C56B" opacity="0.8"/>
+  </g>
+
+  <!-- sabzi katori (bottom-left) -->
+  <g>
+    <circle cx="452" cy="556" r="60" fill="#6E8C61"/>
+    <circle cx="452" cy="556" r="60" fill="none" stroke="#4F6B44" stroke-width="4"/>
+    <circle cx="438" cy="544" r="8" fill="#8AA87B"/><circle cx="466" cy="552" r="7" fill="#C17F1F"/><circle cx="452" cy="570" r="7" fill="#8AA87B"/>
+  </g>
+
+  <!-- dessert / kheer katori (bottom-right) -->
+  <g>
+    <circle cx="748" cy="556" r="58" fill="#F3ECDA"/>
+    <circle cx="748" cy="556" r="58" fill="none" stroke="#D8CFB6" stroke-width="4"/>
+    <circle cx="738" cy="546" r="5" fill="#C17F1F"/><circle cx="760" cy="552" r="5" fill="#C17F1F"/><circle cx="748" cy="566" r="5" fill="#C17F1F"/>
+  </g>
+
+  <!-- serving hand offering the plate (simple, warm) -->
+  <g fill="#E7C9A0">
+    <path d="M600 690 q-150 0 -250 -46 l0 40 q120 60 250 60 q130 0 250 -60 l0 -40 q-100 46 -250 46 Z" opacity="0.0"/>
+  </g>
+  <g>
+    <path d="M470 700 q130 42 260 0" fill="none" stroke="#E7C9A0" stroke-width="46" stroke-linecap="round"/>
+    <path d="M470 700 q130 42 260 0" fill="none" stroke="#D9B487" stroke-width="46" stroke-linecap="round" opacity="0.25"/>
+  </g>
+
+  <!-- heart accent -->
+  <path d="M600 792 c-16 -22 -54 -20 -54 12 c0 24 34 40 54 56 c20 -16 54 -32 54 -56 c0 -32 -38 -34 -54 -12 Z" fill="#E8A33D"/>
+
+  <!-- corner marigold flourishes -->
+  <g fill="#E8A33D" opacity="0.85">
+    <circle cx="70" cy="70" r="16"/><circle cx="104" cy="60" r="13"/><circle cx="60" cy="104" r="13"/>
+    <circle cx="1130" cy="830" r="16"/><circle cx="1096" cy="840" r="13"/><circle cx="1140" cy="796" r="13"/>
+  </g>
+</svg>

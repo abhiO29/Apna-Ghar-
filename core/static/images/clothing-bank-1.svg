@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustration of the Community Clothing Bank showroom with racks of donated clothes on hangers">
+  <defs>
+    <linearGradient id="cbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5EFE0"/>
+      <stop offset="1" stop-color="#FBF7EE"/>
+    </linearGradient>
+    <filter id="soft3" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#cbg)"/>
+  <!-- back wall panel -->
+  <rect x="60" y="70" width="1080" height="620" rx="16" fill="#FFFFFF" opacity="0.55"/>
+  <!-- floor -->
+  <rect y="690" width="1200" height="210" fill="#EFE7D3"/>
+  <rect y="690" width="1200" height="14" fill="#E3DCC8"/>
+  <g stroke="#E3DCC8" stroke-width="3" opacity="0.7">
+    <line x1="0" y1="760" x2="1200" y2="760"/><line x1="0" y1="830" x2="1200" y2="830"/>
+  </g>
+
+  <!-- top signboard -->
+  <rect x="360" y="96" width="480" height="70" rx="16" fill="#7C9A6E"/>
+  <rect x="360" y="96" width="480" height="70" rx="16" fill="none" stroke="#4F6B44" stroke-width="3"/>
+  <text x="600" y="142" text-anchor="middle" font-family="'Fraunces','Georgia',serif" font-size="34" fill="#FFFFFF" letter-spacing="1">CLOTHING BANK</text>
+
+  <!-- hanging rail -->
+  <rect x="150" y="250" width="900" height="14" rx="7" fill="#8A6D4B"/>
+  <rect x="180" y="250" width="12" height="34" fill="#6E543A"/>
+  <rect x="1008" y="250" width="12" height="34" fill="#6E543A"/>
+
+  <!-- garments on hangers -->
+  <g>
+    <!-- reusable shirt shapes with varied colors -->
+    <g transform="translate(230,264)">
+      <path d="M0 8 l30 -20 l30 20 l-14 12 l0 150 l-32 0 l0 -150 Z" fill="#7C9A6E"/>
+      <circle cx="30" cy="-6" r="8" fill="none" stroke="#8A6D4B" stroke-width="3"/>
+    </g>
+    <g transform="translate(320,264)">
+      <path d="M0 8 l30 -20 l30 20 l-14 12 l0 160 l-32 0 l0 -160 Z" fill="#E8A33D"/>
+      <circle cx="30" cy="-6" r="8" fill="none" stroke="#8A6D4B" stroke-width="3"/>
+    </g>
+    <g transform="translate(410,264)">
+      <path d="M0 8 l30 -20 l30 20 l-14 12 l0 145 l-32 0 l0 -145 Z" fill="#4F6B44"/>
+      <circle cx="30" cy="-6" r="8" fill="none" stroke="#8A6D4B" stroke-width="3"/>
+    </g>
+    <g transform="translate(500,264)">
+      <path d="M0 8 l30 -20 l30 20 l-14 12 l0 158 l-32 0 l0 -158 Z" fill="#C17F1F"/>
+      <circle cx="30" cy="-6" r="8" fill="none" stroke="#8A6D4B" stroke-width="3"/>
+    </g>
+    <g transform="translate(590,264)">
+      <path d="M0 8 l30 -20 l30 20 l-14 12 l0 150 l-32 0 l0 -150 Z" fill="#8AA87B"/>
+      <circle cx="30" cy="-6" r="8" fill="none" stroke="#8A6D4B" stroke-width="3"/>
+    </g>
+    <g transform="translate(680,264)">
+      <path d="M0 8 l30 -20 l30 20 l-14 12 l0 162 l-32 0 l0 -162 Z" fill="#F6C56B"/>
+      <circle cx="30" cy="-6" r="8" fill="none" stroke="#8A6D4B" stroke-width="3"/>
+    </g>
+    <g transform="translate(770,264)">
+      <path d="M0 8 l30 -20 l30 20 l-14 12 l0 150 l-32 0 l0 -150 Z" fill="#6E8C61"/>
+      <circle cx="30" cy="-6" r="8" fill="none" stroke="#8A6D4B" stroke-width="3"/>
+    </g>
+    <g transform="translate(860,264)">
+      <path d="M0 8 l30 -20 l30 20 l-14 12 l0 156 l-32 0 l0 -156 Z" fill="#E8A33D"/>
+      <circle cx="30" cy="-6" r="8" fill="none" stroke="#8A6D4B" stroke-width="3"/>
+    </g>
+  </g>
+
+  <!-- folded stacks table -->
+  <rect x="150" y="560" width="380" height="130" rx="10" fill="#F3ECDA" stroke="#E3DCC8" stroke-width="2"/>
+  <g>
+    <rect x="180" y="500" width="120" height="24" rx="6" fill="#7C9A6E"/>
+    <rect x="184" y="524" width="112" height="22" rx="6" fill="#E8A33D"/>
+    <rect x="180" y="546" width="120" height="22" rx="6" fill="#4F6B44"/>
+    <rect x="360" y="512" width="120" height="24" rx="6" fill="#C17F1F"/>
+    <rect x="364" y="536" width="112" height="22" rx="6" fill="#8AA87B"/>
+    <rect x="360" y="558" width="120" height="22" rx="6" fill="#7C9A6E"/>
+  </g>
+
+  <!-- open donation box -->
+  <g transform="translate(760,560)">
+    <path d="M0 40 l40 -40 l200 0 l40 40 l0 100 l-280 0 Z" fill="#D9B487"/>
+    <path d="M0 40 l40 -40 l200 0 l40 40 l-280 0 Z" fill="#E7C9A0"/>
+    <path d="M40 0 l-40 40 l140 0 l0 -40 Z" fill="#C9A876" opacity="0.6"/>
+    <rect x="70" y="60" width="140" height="20" rx="6" fill="#7C9A6E"/>
+    <rect x="66" y="80" width="150" height="18" rx="6" fill="#E8A33D"/>
+    <path d="M140 20 c-10 -14 -34 -12 -34 8 c0 16 22 26 34 36 c12 -10 34 -20 34 -36 c0 -20 -24 -22 -34 -8 Z" fill="#E8A33D"/>
+  </g>
+</svg>
