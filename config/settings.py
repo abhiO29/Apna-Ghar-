@@ -36,6 +36,11 @@ ALLOWED_HOSTS = [
 SECURE_SSL_REDIRECT = os.environ.get("DJANGO_SECURE_SSL_REDIRECT", "False") == "True"
 SESSION_COOKIE_SECURE = os.environ.get("DJANGO_SESSION_COOKIE_SECURE", "False") == "True"
 CSRF_COOKIE_SECURE = os.environ.get("DJANGO_CSRF_COOKIE_SECURE", "False") == "True"
+# Hosts like PythonAnywhere terminate HTTPS at a proxy and forward plain HTTP
+# to Django; this tells Django the original request was HTTPS. Only enable it
+# (DJANGO_BEHIND_PROXY=True) on such a host.
+if os.environ.get("DJANGO_BEHIND_PROXY", "False") == "True":
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_HSTS_SECONDS = int(os.environ.get("DJANGO_SECURE_HSTS_SECONDS", "0"))
 # Safe to leave on in dev too — it's just a response header, never breaks
 # anything locally, and it's exactly what stops an uploaded file (SiteImage)
