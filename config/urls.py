@@ -22,3 +22,14 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    # Production without a separate web-server media mapping (e.g. free
+    # PythonAnywhere): serve uploaded images through Django. Fine at low
+    # traffic; X-Content-Type-Options: nosniff is still sent. If the host's
+    # own /media/ mapping works it takes precedence and this is never hit.
+    from django.urls import re_path
+    from django.views.static import serve as _serve_media
+
+    urlpatterns += [
+        re_path(r"^media/(?P<path>.*)$", _serve_media, {"document_root": settings.MEDIA_ROOT}),
+    ]
